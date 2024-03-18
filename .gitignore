@@ -1,0 +1,5 @@
+src/server/certificate/*
+!src/server/certificate/
+test/server/certificate/*
+!test/server/certificate/
+.env
