@@ -1,11 +1,11 @@
 # Product Service API
 
 ## Description
-This project is an API that simplifies the managing tasks of product data in back-end or server-side projects such as e-commerces, marketplaces, Inventory managment system etc. Adapting the API to your product data or system requirements is a simple task because the architecture of the API performs four independent layers which are model, repository, controller and server. The data transfer is done over HTTP protocol in JSON format.
+This project is an API that simplifies the managing tasks of product data in back-end or server-side projects such as e-commerce, marketplaces, Inventory management system etc. Adapting the API to your product data or system requirements is a simple task because the architecture of the API performs four independent layers which are model, repository, controller, and server. The data transfer is done over HTTP protocol in JSON format.
 
 ## Stack of technologies and dependencies.
 The current version is powered by the following technologies:
-  * **Node.js** as the runtime enviroment.
+  * **Node.js** as the runtime environment.
   * **MongoDB Cluster** No-SQL database for persistence layer.
   * **AWS S3** service for files storage.
   * **Express.js** server framework.
@@ -16,7 +16,7 @@ The current version is powered by the following technologies:
 Data model is defined in model layer in code. And database does not have defined constraints or any structure. The intended purpose of this, is to make the code flexible simplifying the adapting processes and updates. For example: If you want to add new fields to your product or remove fields of the main version you don't need to make any changes in the database config or in the repository layer. You just have to modify the model layer according to the requirements of your project.
 
 ## Server Security
-Server works over HTTPS protocol using SSL/TLS Two-way authentication (server<->client) through X509 Certificates. So both server and client must provide their certificates in the initial TLS handshake process to authenticate each other.
+Server works over HTTPS protocol using SSL/TLS Two-way authentication (server<->client) through X509 Certificates. So, both server and client must provide their certificates in the initial TLS handshake process to authenticate each other.
 ### Security configuration
 There are three X509 certificates involved. `CA Certificate`, `Server Certificate` and `Client Certificate`.
   1. Admin owns the `CA Certificate` and its private key. ***IMPORTANT***: Only the administrator owns private key of `CA Certificate`.
@@ -30,21 +30,21 @@ There are three X509 certificates involved. `CA Certificate`, `Server Certificat
 
 ## Configuration
 ### .env File configuration
-Before execution, you have to configure the [.env](.env) file setting the following enviroment variables:
-  * `MONGO_CONNECTION_URL`: URL of the MongoDB Cluster. **IMPORTANT** Product-Service-API uses transactions and this capability is only compatible with MongoDB Clusters. If you have a MongoDB Server running on your host and you link it to the application it wont work properly.
+Before execution, you have to configure the [.env](.env) file setting the following environment variables:
+  * `MONGO_CONNECTION_URL`: URL of the MongoDB Cluster. **IMPORTANT** Product-Service-API uses transactions and this capability is only compatible with MongoDB Clusters. If you have a MongoDB Server running on your host and you link it to the application, it won’t work properly.
   * `MONGO_DB_NAME`: Name of the database.
   * `AUTHORIZED_EXTENSIONS`: List of file extensions that you allow users to store in AWS S3 Bucket.
   * `SERVER_ADDRESS`: Host address of your server where the application will be running.
   * `SERVER_PORT`: Host port of your server where the application will be running.
   * `CA_CERTIFICATE_FILE_NAME`: Name of the X509 certificate file with extension `.pem` of the ***certification authority certificate***.
   * `CERTIFICATE_FILE_NAME`: Name of the X509 certificate file with extension `.pem` of the ***server certificate*** signed by the certification authority certificate.
-  * `KEY_FILE_NAME`: Name of the private key file with extension `.pem` of the aplication admin certificate.
+  * `KEY_FILE_NAME`: Name of the private key file with extension `.pem` of the application admin certificate.
   * `AWS_S3_BUCKET_URL`: URL of the AWS S3 Bucket where the product files will be stored.
-  * `AWS_S3_BUCKET_ACCESS_ID`: Acces id of the AWS S3 Bucket.
-  * `AWS_S3_BUCKET_SECRECT_ACCESS_KEY`: Secret acces key of the AWS S3 Bucket.
+  * `AWS_S3_BUCKET_ACCESS_ID`: Access id of the AWS S3 Bucket.
+  * `AWS_S3_BUCKET_SECRECT_ACCESS_KEY`: Secret access key of the AWS S3 Bucket.
   * `AWS_S3_BUCKET_NAME`: Name of the AWS S3 Bucket.
 ### Database
-  1. Create a MongoDB Cluster and register your HOST public ip address in the [MongoDB Website](https://www.mongodb.com/es).
+  1. Create a MongoDB Cluster and register your HOST public IP address in the [MongoDB Website](https://www.mongodb.com/es).
   2. Create a Database in the cluster.
   3. Create two Collections **Product** & **Version**
 
